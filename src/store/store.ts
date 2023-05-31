@@ -1,7 +1,8 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import thunkMiddleware from 'redux-thunk'
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {moviesReducer} from "./moviesReducer";
+import {combineReducers} from "redux";
 
 
 const rootReducer = combineReducers({

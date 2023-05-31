@@ -1,4 +1,7 @@
 .moviesBlock {
-  display: flex;
-  flex-wrap: wrap;
+
+  .moviesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

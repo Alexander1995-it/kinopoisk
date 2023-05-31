@@ -3,7 +3,15 @@ import Pagination from '@mui/material/Pagination';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 
 
-const CustomPagination = () => {
+type CustomPaginationType = {
+    pages: number
+    page: number
+    onChange: (page: number) => void
+}
+
+const CustomPagination = ({pages, page, onChange}: CustomPaginationType): JSX.Element => {
+
+
     const theme = createTheme({
         palette: {
             text: {
@@ -15,10 +23,15 @@ const CustomPagination = () => {
             }
         },
     });
+
+
     return (
         <div>
             <ThemeProvider theme={theme}>
-                <Pagination color="primary" count={10} size="large"/>
+                <Pagination color="primary" size="large"
+                            onChange={(e, page: number) => onChange(page)}
+                            count={pages}
+                            page={page}/>
             </ThemeProvider>
         </div>
     );

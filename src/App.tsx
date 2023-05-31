@@ -3,7 +3,9 @@ import style from 'App.module.scss';
 import {fetchMovies} from "store/moviesReducer";
 import {useAppDispatch} from "store/store";
 import Main from "./components/Main/Main";
-import Header from "components/Header/Header";
+import {Route, Routes} from "react-router-dom";
+import Movies from "components/Movies/Movies";
+import InfoMovie from "components/InfoMovie/InfoMovie";
 
 function App() {
 
@@ -15,8 +17,12 @@ function App() {
 
     return (
         <div className={style.appBlock}>
-            {/*<Header/>*/}
-            <Main/>
+            <Routes>
+                <Route element={<Main/>}>
+                    <Route path='/' element={<Movies/>}/>
+                    <Route path='/infoMovie' element={<InfoMovie/>}/>
+                </Route>
+            </Routes>
         </div>
     );
 }

@@ -1,11 +1,13 @@
 import React from 'react';
-import Movies from "../Movies/Movies";
 import style from './Main.module.scss'
+import {Outlet} from "react-router-dom";
+import FilterMovies from "components/FilterMovies/FilterMovies";
 
 const Main = () => {
     return (
         <div className={style.mainBlock}>
-            <Movies/>
+            <FilterMovies/>
+            <Outlet/>
         </div>
     );
 };
