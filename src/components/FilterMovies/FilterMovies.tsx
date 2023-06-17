@@ -1,5 +1,5 @@
 import React from 'react';
-import {useAppDispatch} from "store/store";
+import {useAppDispatch, useAppSelector} from "store/store";
 import {actionsMovies} from "store/moviesReducer";
 import style from './FilterMovies.module.scss'
 import {Link} from "react-router-dom";
@@ -7,9 +7,10 @@ import {Link} from "react-router-dom";
 const FilterMovies = () => {
 
     const dispatch = useAppDispatch()
-
+    
     const handlerFilter = (filter: string) => {
         dispatch(actionsMovies.changeFilter(filter))
+        dispatch(actionsMovies.changePage(1))
     }
 
     return (

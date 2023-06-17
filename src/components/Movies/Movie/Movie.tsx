@@ -1,19 +1,24 @@
 import React from 'react';
-import {MovieType} from "api/movies.service";
+import {MovieType} from "common/api/movies.service";
 import style from './Movie.module.scss'
-import {useDispatch} from "react-redux";
-import {actionsMovies} from "store/moviesReducer";
+import {Link} from "react-router-dom";
+import {fetchMovie} from "store/movieReducer";
+import {useAppDispatch} from "store/store";
 
-type MoviePropsTye = { movie: MovieType }
+type MoviePropsTye = {
+    movie: MovieType
+}
 
 const Movie = ({movie}: MoviePropsTye) => {
-    const dispatch = useDispatch()
+
+    const dispatch = useAppDispatch()
+
     return (
         <div className={style.movieBlock}>
-            <div onClick={() => dispatch(actionsMovies.setInfoMovie(movie.id))}>
-                <img width='150px' height='220px' src={movie.poster ? movie.poster.url : ''}
+            <Link to={`/infoMovie/${movie.id}`}>
+                <img width='150px' height='220px' src={movie.poster && movie.poster.url}
                      alt="No img"/>
-            </div>
+            </Link>
             <div className={style.nameMovie}>{movie.name}</div>
         </div>
     );

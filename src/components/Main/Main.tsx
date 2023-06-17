@@ -4,6 +4,7 @@ import {Outlet} from "react-router-dom";
 import FilterMovies from "components/FilterMovies/FilterMovies";
 
 const Main = () => {
+
     return (
         <div className={style.mainBlock}>
             <FilterMovies/>

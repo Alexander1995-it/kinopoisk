@@ -3,10 +3,14 @@ import thunkMiddleware from 'redux-thunk'
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import {moviesReducer} from "./moviesReducer";
 import {combineReducers} from "redux";
+import {movieReducer} from "./movieReducer";
+import {appReducer} from "store/appReducer";
 
 
 const rootReducer = combineReducers({
-    movies: moviesReducer
+    app: appReducer,
+    movies: moviesReducer,
+    movie: movieReducer
 })
 
 
