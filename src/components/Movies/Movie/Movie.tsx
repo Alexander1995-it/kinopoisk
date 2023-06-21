@@ -16,7 +16,7 @@ const Movie = ({movie}: MoviePropsTye) => {
     return (
         <div className={style.movieBlock}>
             <Link to={`/infoMovie/${movie.id}`}>
-                <img width='150px' height='220px' src={movie.poster && movie.poster.url}
+                <img className={style.image} src={movie.poster && movie.poster.url}
                      alt="No img"/>
             </Link>
             <div className={style.nameMovie}>{movie.name}</div>

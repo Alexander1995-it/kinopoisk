@@ -19,12 +19,13 @@ const Movies = () => {
     useEffect(() => {
         dispatch(actionsMovies.changePage(searchParams.get('page')))
         dispatch(actionsMovies.changeFilter(searchParams.get('type')))
+        dispatch(fetchMovies({
+            page: Number(searchParams.get('page')),
+            type: searchParams.get('type') as FilterMoviesType
+        }))
     }, [])
 
     useEffect(() => {
-        if (movies.currentPage) {
-            dispatch(fetchMovies({page: movies.currentPage, type: movies.type}))
-        }
         setSearchParams({
             page: String(movies.currentPage),
             type: movies.type as FilterMoviesType
@@ -33,7 +34,12 @@ const Movies = () => {
 
 
     const handlerPagination = (page: number) => {
-        dispatch(actionsMovies.changePage(page))
+        dispatch(fetchMovies({page, type: movies.type})).unwrap()
+            .then(() => {
+                dispatch(actionsMovies.changePage(page))
+            })
+            .catch(e => {
+            })
     }
 
     return (

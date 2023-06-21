@@ -1,6 +1,19 @@
 .movieBlock {
   margin-right: 16px;
   margin-bottom: 20px;
+
+  .image {
+    width: 150px;
+    height: 220px;
+    transition: all .4s;
+    margin-bottom: 10px;
+  }
+
+  .image:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+
+  }
 }
 
 .nameMovie {

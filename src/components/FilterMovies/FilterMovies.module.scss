@@ -2,12 +2,21 @@
   display: flex;
   padding: 10px 0 20px 0;
 
+  .activeFilter {
+    color: #FF6939;
+  }
+
   a {
     margin-right: 15px;
-    color: #FF6939;
+    color: #e3ab99;
     font-size: 20px;
     font-family: Inter;
     cursor: pointer;
     text-decoration: none;
+  }
+
+  a:hover {
+    transition: all .4s;
+    opacity: 0.7;
   }
 }

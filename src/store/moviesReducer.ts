@@ -46,21 +46,13 @@ export const actionsMovies = moviesSlice.actions
 export const fetchMovies = createAppAsyncThunk<MoviesResponseType, querySearchMoviesType>('movies/fetchMovies', async (param, thunkAPI) => {
     try {
         const state = thunkAPI.getState() as AppRootStateType
-        const limit = state.movies.limit
-        const currentPage = state.movies.currentPage
-        const filter = state.movies.type
-
-
         const params = {
-            limit: limit,
-            page: currentPage,
-            type: filter,
+            limit: state.movies.limit,
+            page: param.page ? param.page : state.movies.defaultPage,
+            type: param.type ? param.type : state.movies.type,
             poster: '!null' as const,
             name: '!null' as const,
-            ...param
         }
-
-        console.log(params)
         const response = await moviesService.getMovies(params)
         return response.data
 

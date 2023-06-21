@@ -1,31 +1,46 @@
-.infoMovieWrapper {
+.loadingBlock {
+  height: 80vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .imgBlock {
-    margin-right: 15px;
-  }
+.infoMovieBlock {
+  .infoMovieWrapper {
+    display: flex;
 
-  .infoBlock {
-    .nameMovie {
-      font-family: Inter;
-      font-size: 40px;
-      color: #cccc9f;
-      margin-bottom: 30px;
+    .imgBlock {
+      margin-right: 15px;
     }
 
-    .aboutMovie {
-      .titleInfo {
-        color: #cccc9f;
+    .infoBlock {
+
+      .nameMovie {
         font-family: Inter;
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 5px;
+        font-size: 40px;
+        color: #cccc9f;
+        margin-bottom: 30px;
       }
 
-      .subtitleInfo {
-        color: antiquewhite;
-        font-weight: bold;
+      .aboutMovie {
+        .titleInfo {
+          color: #cccc9f;
+          font-family: Inter;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .subtitleInfo {
+          color: antiquewhite;
+          font-weight: bold;
+        }
+      }
+
+      .playerBlock {
+        margin-top: 15px;
       }
     }
   }
+
 }
