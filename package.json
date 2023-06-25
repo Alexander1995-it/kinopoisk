@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Alexander1995-it.github.io/kinopoisk",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +17,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "axios": "^1.4.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-player": "^2.12.0",
@@ -28,6 +30,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

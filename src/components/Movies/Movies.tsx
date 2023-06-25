@@ -48,9 +48,11 @@ const Movies = () => {
                 ? <div className={style.loadingBlock}>
                     <Loading/>
                 </div>
-                : <div className={style.moviesWrapper}>
-                    {movies && movies.docs.map((el) => <div key={el.id}><Movie
-                        movie={el}/></div>)}
+                : <div>
+                    <div className={style.moviesWrapper}>
+                        {movies && movies.docs.map((el) => <div key={el.id}><Movie
+                            movie={el}/></div>)}
+                    </div>
                 </div>
             }
 

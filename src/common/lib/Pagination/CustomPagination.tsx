@@ -28,7 +28,7 @@ const CustomPagination = ({pages, page, onChange}: CustomPaginationType): JSX.El
     return (
         <div>
             <ThemeProvider theme={theme}>
-                <Pagination color="primary" size="large"
+                <Pagination color="primary" size="medium"
                             onChange={(e, page: number) => onChange(page)}
                             count={pages}
                             page={page}/>
