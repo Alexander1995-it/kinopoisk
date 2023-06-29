@@ -28,7 +28,7 @@ export type querySearchMoviesType = {
     page?: number | null
     type?: FilterMoviesType | null
     poster?: '!null'
-    name?: '!null'
+    name?: string
 }
 
 export type MovieType = {

@@ -15,7 +15,7 @@ const initialState: MoviesResponseType = {
     pages: 30,
     currentPage: null,
     defaultPage: 1,
-    total: 30,
+    total: 0,
     type: 'movie',
 }
 
@@ -52,6 +52,7 @@ export const fetchMovies = createAppAsyncThunk<MoviesResponseType, querySearchMo
             type: param.type ? param.type : state.movies.type,
             poster: '!null' as const,
             name: '!null' as const,
+            ...param
         }
         const response = await moviesService.getMovies(params)
         return response.data
