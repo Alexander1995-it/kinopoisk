@@ -6,6 +6,7 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 type InputSearchPropsType = {} & DefaultInputPropsType
 
 export const InputSearch = (props: InputSearchPropsType) => {
+    console.log('fix input')
     return (
         <input className={style.input} {...props}/>
     )
