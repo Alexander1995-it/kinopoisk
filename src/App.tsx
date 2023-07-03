@@ -7,6 +7,7 @@ import InfoMovie from "components/InfoMovie/InfoMovie";
 
 function App() {
     console.log('feature')
+    console.log('feature_2')
     return (
         <div className={style.appBlock}>
             <Routes>
