@@ -2,7 +2,6 @@ import React from 'react';
 import {MovieType} from "common/api/movies.service";
 import style from './Movie.module.scss'
 import {Link} from "react-router-dom";
-import {fetchMovie} from "store/movieReducer";
 import {useAppDispatch} from "store/store";
 
 type MoviePropsTye = {

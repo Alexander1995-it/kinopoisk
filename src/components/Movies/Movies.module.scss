@@ -1,13 +1,19 @@
 .moviesBlock {
+  margin: 0 7.5px;
+  width: 100%;
+
   .inputBlock {
+    margin-left: 7.5px;
     height: 60px;
-    //margin-bottom: 20px;
   }
 
   .moviesWrapper {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+
+    .item {
+      margin: 0 7.5px;
+    }
   }
 
   .loadingBlock {

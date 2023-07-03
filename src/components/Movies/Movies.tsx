@@ -7,7 +7,6 @@ import {actionsMovies, fetchMovies} from "store/moviesReducer";
 import {useSearchParams} from "react-router-dom";
 import {FilterMoviesType} from "common/api/movies.service";
 import {Loading} from "common/lib/Loading/Loading";
-import {TextField} from "@mui/material";
 import {InputSearch} from "common/lib/InputSearch/InputSearch";
 import {useDebounce} from "common/hooks/useDebounce";
 
@@ -66,8 +65,11 @@ const Movies = () => {
                         <Loading/>
                     </div>
                     : <div className={style.moviesWrapper}>
-                        {movies && movies.docs.map((el) => <div key={el.id}><Movie
-                            movie={el}/></div>)}
+                        {movies && movies.docs.map((el) => <div
+                            key={el.id}
+                            className={style.item}>
+                            <Movie
+                                movie={el}/></div>)}
                     </div>
                 }
             </div>
