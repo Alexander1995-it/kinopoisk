@@ -11,6 +11,7 @@ function App() {
         <div className={style.appBlock}>
             <Routes>
                 <Route element={<Main/>}>
+                    <Route path='/e' element={<div>e</div>}/>
                     <Route path='/' element={<Movies/>}/>
                     <Route path='/infoMovie/:id' element={<InfoMovie/>}/>
                 </Route>
