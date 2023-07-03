@@ -6,6 +6,7 @@ import Movies from "components/Movies/Movies";
 import InfoMovie from "components/InfoMovie/InfoMovie";
 
 function App() {
+    console.log('fix_1')
     return (
         <div className={style.appBlock}>
             <Routes>
