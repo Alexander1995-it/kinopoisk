@@ -6,13 +6,10 @@ import Movies from "components/Movies/Movies";
 import InfoMovie from "components/InfoMovie/InfoMovie";
 
 function App() {
-    console.log('feature_2')
-    console.log('feature_1')
     return (
         <div className={style.appBlock}>
             <Routes>
                 <Route element={<Main/>}>
-                    <Route path='/e' element={<div>e</div>}/>
                     <Route path='/' element={<Movies/>}/>
                     <Route path='/infoMovie/:id' element={<InfoMovie/>}/>
                 </Route>
