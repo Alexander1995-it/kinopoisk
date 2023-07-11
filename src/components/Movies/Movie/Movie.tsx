@@ -9,7 +9,7 @@ type MoviePropsTye = {
 }
 
 const Movie = ({movie}: MoviePropsTye) => {
-
+    
     const dispatch = useAppDispatch()
 
     return (

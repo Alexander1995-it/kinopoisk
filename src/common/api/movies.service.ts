@@ -2,7 +2,6 @@ import {instance} from "common/api/https.service";
 
 export const moviesService = {
     getMovies(params: querySearchMoviesType) {
-        // return instance.get<MoviesResponseType>(`movie?limit=${limit}&page=${page}&type=${filter}&poster=!null&name=!null`)
         return instance.get<MoviesResponseType>('movie', {params})
     },
     getMovieById(id: number) {
@@ -14,11 +13,11 @@ export const moviesService = {
 export type MoviesResponseType = {
     limit: number
     currentPage: number | null
-    defaultPage: number
     pages: number
     total: number
     type: FilterMoviesType
     docs: MovieType[]
+    searchName: string
 }
 
 export type FilterMoviesType = 'movie' | 'tv-series' | 'cartoon' | 'anime' | 'animated-series'
@@ -28,7 +27,7 @@ export type querySearchMoviesType = {
     page?: number | null
     type?: FilterMoviesType | null
     poster?: '!null'
-    name?: string
+    name?: string | null
 }
 
 export type MovieType = {

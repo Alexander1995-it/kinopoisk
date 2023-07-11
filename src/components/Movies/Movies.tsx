@@ -17,49 +17,46 @@ const Movies = () => {
     const movies = useAppSelector((state) => state.movies)
     const isLoading = useAppSelector(state => state.app.isLoading)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [searchInput, setSearchInput] = useState('')
+
+    const debouncedValue = useDebounce<string>(movies.searchName, 700)
+
     useEffect(() => {
-        dispatch(actionsMovies.changePage(searchParams.get('page')))
-        dispatch(actionsMovies.changeFilter(searchParams.get('type')))
-        dispatch(fetchMovies({
-            page: Number(searchParams.get('page')),
-            type: searchParams.get('type') as FilterMoviesType
-        }))
+        let type = searchParams.get('type')
+        let page = searchParams.get('page')
+        let name = searchParams.get('name')
+        dispatch(actionsMovies.changeSearchName(name))
+        dispatch(actionsMovies.changeFilter(type))
+        dispatch(actionsMovies.changePage(page))
     }, [])
 
     useEffect(() => {
-        setSearchParams({
-            page: String(movies.currentPage),
-            type: movies.type as FilterMoviesType
-        })
-    }, [movies.currentPage, movies.type])
+        if (movies.currentPage) {
+            dispatch(fetchMovies({
+                page: movies.currentPage,
+                type: movies.type as FilterMoviesType,
+                name: movies.searchName
+            }))
+        }
+        searchParams.set('page', String(movies.currentPage))
+        searchParams.set('name', movies.searchName)
+        searchParams.set('type', movies.type)
+        setSearchParams(searchParams)
 
-    const debouncedValue = useDebounce<string>(searchInput, 700)
+    }, [movies.currentPage, movies.type, debouncedValue])
 
-    useEffect(() => {
-        dispatch(fetchMovies({
-            name: searchInput
-        }))
-    }, [debouncedValue])
 
     const handlerPagination = (page: number) => {
-        dispatch(fetchMovies({page, type: movies.type})).unwrap()
-            .then(() => {
-                dispatch(actionsMovies.changePage(page))
-            })
-            .catch(e => {
-            })
+        dispatch(actionsMovies.changePage(page))
     }
-
-
+    console.log(debouncedValue)
     return (
         <div className={style.moviesBlock}>
             <div>
                 <div className={style.inputBlock}>
                     <InputSearch
-                        value={searchInput}
+                        value={movies.searchName}
                         placeholder='Поиск'
-                        onChange={(e) => setSearchInput(e.currentTarget.value)}/>
+                        onChange={(e) => dispatch((actionsMovies.changeSearchName(e.currentTarget.value)))}/>
                 </div>
                 {isLoading ? <div className={style.loadingBlock}>
                         <Loading/>

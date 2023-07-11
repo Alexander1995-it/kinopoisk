@@ -14,9 +14,9 @@ const initialState: MoviesResponseType = {
     limit: 30,
     pages: 30,
     currentPage: null,
-    defaultPage: 1,
     total: 0,
     type: 'movie',
+    searchName: ''
 }
 
 
@@ -25,10 +25,13 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         changePage(state, action) {
-            state.currentPage = action.payload === null ? state.defaultPage : +action.payload
+            state.currentPage = action.payload === null ? 1 : +action.payload
         },
         changeFilter(state, action) {
             state.type = action.payload === null ? state.type : action.payload
+        },
+        changeSearchName(state, action) {
+            state.searchName = action.payload === null ? '' : action.payload
         },
     },
     extraReducers: (builder) => {
@@ -48,7 +51,7 @@ export const fetchMovies = createAppAsyncThunk<MoviesResponseType, querySearchMo
         const state = thunkAPI.getState() as AppRootStateType
         const params = {
             limit: state.movies.limit,
-            page: param.page ? param.page : state.movies.defaultPage,
+            page: param.page ? param.page : state.movies.currentPage,
             type: param.type ? param.type : state.movies.type,
             poster: '!null' as const,
             name: '!null' as const,
