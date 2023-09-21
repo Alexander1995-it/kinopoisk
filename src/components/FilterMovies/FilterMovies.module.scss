@@ -1,14 +1,14 @@
 .filterMoviesBlock {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 0 20px 7.5px;
+  gap: 15px;
+  padding: 10px 0 20px 0px;
 
   .activeFilter {
     color: #FF6939;
   }
 
   a {
-    margin: 0 7.5px;
     color: #e3ab99;
     font-size: 20px;
     font-family: Inter;

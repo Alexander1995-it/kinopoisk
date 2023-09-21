@@ -1,18 +1,32 @@
 .moviesBlock {
-  margin: 0 7.5px;
-  width: 100%;
 
   .inputBlock {
-    margin-left: 7.5px;
     height: 60px;
   }
 
   .moviesWrapper {
     display: flex;
     flex-wrap: wrap;
+    gap: 15px;
 
     .item {
-      margin: 0 7.5px;
+      flex: 1 1 15%;
+    }
+
+    @media screen and (max-width: 800px) {
+      .item {
+        flex: 1 1 16.666%;
+      }
+    }
+    @media screen and (max-width: 660px) {
+      .item {
+        flex: 1 1 20%;
+      }
+    }
+    @media screen and (max-width: 580px) {
+      .item {
+        flex: 1 1 40%;
+      }
     }
   }
 
@@ -23,3 +37,4 @@
     justify-content: center;
   }
 }
+
